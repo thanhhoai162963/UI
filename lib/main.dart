@@ -14,42 +14,22 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    List<Product> list = [
-      Product("ca", "123", 700000),
-      Product("ca", "1234", 700000),
-      Product("ca", "1235", 700000),
-      Product("ca", "1236", 700000),
-      Product("ca", "1232", 700000),
-      Product("ca", "1234", 700000),
-      Product("ca", "123", 700000),
+    List<Product> listProduct = [
+      Product("ca", 'assets/images/dongho_1.jpg', 700000),
+      Product("ca", 'assets/images/dongho_2.jpg', 700000),
+      Product("ca", 'assets/images/dongho_4.jpg', 700000),
+      Product("ca", 'assets/images/dongho_5.jpg', 700000),
+      Product("ca", 'assets/images/dongho_6.jpg', 700000),
     ];
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(),
           body: Container(
-              child: GridView.builder(
-                itemCount: list.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 20,
-                    crossAxisCount: 5,
-                  ),
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      color: Colors.blue,
-                      child: Container(
-                        color: Colors.blue,
-                        child: Column(
-                          children: [
-                            Text(list[index].name),
-                            Text(list[index].image),
-                            Text('${list[index].price}'),
-                          ],
-                        ),
-                      )
-                    );
-                  }))),
+              child: ListView(
+
+                children: [],
+              ))
+          ),
     );
   }
 }
-
