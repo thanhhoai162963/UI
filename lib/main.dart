@@ -11,6 +11,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   get childrenDelegate => 123;
+  var index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,28 +28,31 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
           appBar: AppBar(),
           body: Container(
-              child: GridView.builder(
-                itemCount: list.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 20,
-                    crossAxisCount: 5,
-                  ),
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      color: Colors.blue,
-                      child: Container(
-                        color: Colors.blue,
-                        child: Column(
-                          children: [
-                            Text(list[index].name),
-                            Text(list[index].image),
-                            Text('${list[index].price}'),
-                          ],
-                        ),
-                      )
-                    );
-                  }))),
+            alignment: Alignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IndexedStack(
+                  index: index,
+                  children: <Widget>[
+                    Container(width: 100,height:100,color: Colors.blue),
+                    Container(width: 200,height:100,color: Colors.red),
+                    Container(width: 300,height:100,color: Colors.yellow),
+                  ],
+                ),
+                FloatingActionButton(onPressed: (){
+                  setState(() {
+                    if(index < 2){
+                      ++index;
+                    }else {
+                      index = 0;
+                    }
+                  });
+
+                })
+              ],
+            ),
+          )),
     );
   }
 }
